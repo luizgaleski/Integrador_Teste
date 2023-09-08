@@ -1,7 +1,7 @@
 
 import { Component } from '@angular/core';
 import { AngularFireStorage } from '@angular/fire/compat/storage';
-import { FirebaseStorageService } from '../firebase-storage.service';
+import { FirebaseStorageService } from '../../service/firebase-storage.service';
 
 @Component({
   selector: 'app-exames-list',
