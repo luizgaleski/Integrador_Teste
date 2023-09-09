@@ -20,6 +20,11 @@ const routes: Routes = [
     loadChildren: () => import('./view/exames/exames.module').then( m => m.ExamesPageModule)
   },
 
+  {
+    path: 'upload',
+    loadChildren: () => import('./view/upload/upload.module').then( m => m.UploadPageModule)
+  },
+
 ];
 
 @NgModule({

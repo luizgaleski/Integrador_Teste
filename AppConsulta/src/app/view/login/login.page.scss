@@ -5,6 +5,14 @@ ion-header {
   }
 }
 
+ion-title{
+  font-weight: bold;
+}
+
+ion-button {
+  --background: #0cbe98;
+
+}
 
 ion-content {
     .login-container {
@@ -39,3 +47,7 @@ ion-content {
     align-items: center;
   }
   
+  .custom-link {
+    color: #000; /* Define a cor desejada para o link */
+    text-decoration: none; /* Remove sublinhado */
+  }

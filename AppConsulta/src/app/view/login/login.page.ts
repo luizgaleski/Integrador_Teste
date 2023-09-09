@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { Router } from '@angular/router';
-import { AuthService } from '../exames/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -12,38 +11,48 @@ export class LoginPage {
   email: string = '';
   senha: string = '';
 
-  constructor(
-    private authService: AuthService,
-    private formBuilder: FormBuilder,
-    private router: Router
-  ) {
-    
-  }
-//eu quero tomar 12 litros de querosene com soda caustica!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+  constructor(private afAuth: AngularFireAuth, private router: Router) {}
+
   async login() {
-  
     try {
-      await this.authService.login(this.email, this.senha);
-      // O usuário foi autenticado com sucesso.
-  
-      // Extrai as três letras após o "@" do email.
-      const domain = this.email.split('@')[1].substring(0, 3).toLowerCase();
+      const res = await this.afAuth.signInWithEmailAndPassword(
+        this.email,
+        this.senha
+      );
       
-      // Determina para qual página redirecionar com base no domínio.
-      switch (domain) {
-        case 'pac':
-          this.router.navigate(['/exames']);
-          break;
-        case 'cli':
-          this.router.navigate(['/upload']);
-          break;
-        default:
-          this.router.navigate(['/login']);
-          break;
+      if (res) {
+        const tipoUsuario = this.getTipoUsuario(this.email);
+        
+        // Redirecionar com base no tipo de usuário
+        switch (tipoUsuario) {
+          case 'paciente':
+            this.router.navigate(['/exames']);
+            break;
+          case 'clinica':
+            this.router.navigate(['/upload']);
+            break;
+          default:
+            console.error('Tipo de usuário desconhecido:', tipoUsuario);
+            // Lógica adicional para lidar com tipos desconhecidos ou não mapeados
+        }
       }
     } catch (error) {
-      // Trate os erros de autenticação e exiba uma mensagem de erro adequada.
-      console.error('Erro ao fazer login:', error);
+      console.error('Erro de login:', error);
+    }
+  }
+
+  private getTipoUsuario(email: string): string {
+    const domain = email.split('@')[1];
+    const tipo = domain.substring(0, 3); // Pega as três primeiras letras após o "@"
+    
+    // Aqui você pode definir a lógica para mapear as letras para o tipo de usuário desejado
+    switch (tipo) {
+      case 'pac':
+        return 'paciente';
+      case 'cli':
+        return 'clinica';
+      default:
+        return 'desconhecido'; // Tipo de usuário desconhecido ou não mapeado
     }
   }
 }

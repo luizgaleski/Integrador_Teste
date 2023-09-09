@@ -4,20 +4,40 @@ ion-header {
     color: white;
   }
 }
+ion-title{
+  font-weight: bold;
+}
 
+.title {
+  font-size: 36px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  color: #333; 
+  text-align: left;
+  
+}
+.description {
+  font-size: 24px; 
+  font-weight: bold; 
+  margin-bottom: 30px; 
+  color: #000; 
+  justify-items: auto;
+  text-align: justify;
+}
 .image-grid {
+  box-shadow: #000;
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh; /* Ocupa a altura da tela */
+  height: 100vh; 
   margin: 0;
   padding: 0;
-  position: relative; /* Para posicionamento relativo */
+  position: relative; 
 
   table {
-    width: 100%; /* Ocupa toda a largura */
-    height: 100%; /* Ocupa toda a altura */
-    border-spacing: 0; /* Remove espaçamento entre células */
+    width: 100%; 
+    height: 100%; 
+    border-spacing: 0; 
   }
 
   td {

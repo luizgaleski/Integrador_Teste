@@ -1,13 +1,56 @@
-<ion-header [translucent]="true">
+<ion-header>
   <ion-toolbar>
-    <ion-title>upload</ion-title>
+    <a href="/home" class="page-title">
+      <ion-title>CliniKa</ion-title>
+    </a>
   </ion-toolbar>
+  <ion-buttons slot="end">
+    <ng-container *ngIf="estaLogado; else botaoLogin">
+      <ion-button (click)="fazerLogout()">Logout</ion-button>
+    </ng-container>
+    <ng-template #botaoLogin>
+      <ion-button routerLink="/login">Login</ion-button>    
+    </ng-template>
+      
+    <ion-button id="click-trigger">Contato</ion-button>
+      <ion-popover trigger="click-trigger" triggerAction="click">
+        <ng-template>
+          <ion-content class="ion-padding">
+            <ion-icon name="logo-whatsapp"></ion-icon>
+            <ion-label>  (42) 99984-3771</ion-label>
+          </ion-content>
+          <ion-content class="ion-padding">
+            
+            <ion-icon name="logo-instagram"></ion-icon>
+            <ion-label>
+              <a href="https://www.instagram.com/mestrelaboratorio/" class="custom-link" target="_blank"> mestrelaboratorio</a>
+            </ion-label>
+
+          </ion-content>
+        </ng-template>
+      </ion-popover>
+  </ion-buttons>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">upload</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-toolbar color="light">
+  <ion-title size="large">Upload</ion-title>
+</ion-toolbar>
+<ion-content>
+  <form (ngSubmit)="enviarExame()">
+    <ion-list>
+     
+      <ion-item>
+        <ion-label position="stacked">Email do Paciente</ion-label>
+        <ion-input type="email" [(ngModel)]="emailPaciente"></ion-input>
+      </ion-item>
+      
+      
+      <ion-item>
+        <ion-label position="stacked">Selecionar Imagem</ion-label>
+        <input type="file" (change)="selecionarArquivo($event)">
+      </ion-item>
+    </ion-list>
+    
+    <ion-button expand="full" type="submit">Enviar Exame</ion-button>
+  </form>
 </ion-content>
