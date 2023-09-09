@@ -1,9 +1,17 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>Los Fellas</ion-title>
+    <a href="/home" class="page-title">
+      <ion-title>CliniKa</ion-title>
+    </a>
   </ion-toolbar>
   <ion-buttons slot="end">
-    <ion-button routerLink="/login">Login</ion-button>      
+    <ng-container *ngIf="estaLogado; else botaoLogin">
+      <ion-button (click)="fazerLogout()">Logout</ion-button>
+    </ng-container>
+    <ng-template #botaoLogin>
+      <ion-button routerLink="/login">Login</ion-button>    
+    </ng-template>
+      
     <ion-button id="click-trigger">Contato</ion-button>
       <ion-popover trigger="click-trigger" triggerAction="click">
         <ng-template>
@@ -30,7 +38,10 @@
       <tr>
         <td>
           <div class="content-box">
-            <div>Texto aqui</div>
+            <div class="title">
+              <div class="title">Bem-vindo ao nosso Sistema de Consulta de Exames</div>
+
+             </div>
           </div>
         </td>
         <td>
@@ -43,7 +54,7 @@
         </td>
         <td>
           <div class="content-box">
-            <div>Texto aqui</div>
+            <div class="title"> Nossa missão é tornar sua jornada de cuidados de saúde mais conveniente e eficiente.</div>
           </div>
         </td>
       </tr>

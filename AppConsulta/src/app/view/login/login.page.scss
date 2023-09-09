@@ -5,6 +5,14 @@ ion-header {
   }
 }
 
+ion-title{
+  font-weight: bold;
+}
+
+ion-button {
+  --background: #0cbe98;
+
+}
 
 ion-content {
     .login-container {
@@ -28,14 +36,25 @@ ion-content {
   }
   
   .fullscreen {
-    --ion-safe-area-top: 0; /* Define a margem superior para 0 para começar após a header */
+    --ion-safe-area-top: 0; 
     margin-top: var(--ion-safe-area-top);
   }
 
   .page-title {
-    text-decoration: none; /* Remova o sublinhado padrão do link */
-    color: white; /* Defina a cor do link */
+    text-decoration: none; 
+    color: white; 
     display: flex;
     align-items: center;
   }
   
+  .custom-link {
+    color: #000; 
+    text-decoration: none; 
+  }
+
+  .mensagem-erro {
+    color: red;
+    margin-top: 10px;
+    text-align: center;
+    font-size: 14px;
+  }

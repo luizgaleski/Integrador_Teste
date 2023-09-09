@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { AuthService } from '../../controller/auth.service';
 
 @Component({
   selector: 'app-home',
@@ -6,7 +7,17 @@ import { Component } from '@angular/core';
   styleUrls: ['home.page.scss'],
 })
 export class HomePage {
+  estaLogado = false;
+  constructor(private authService: AuthService) {}
 
-  constructor() {}
-
+  ngOnInit() {
+    
+    this.authService.verificarEstadoAutenticacao().subscribe((estaLogado) => {
+      this.estaLogado = estaLogado;
+    });
+  }
+  fazerLogout() {
+    this.authService.fazerLogout();
+    
+  }
 }

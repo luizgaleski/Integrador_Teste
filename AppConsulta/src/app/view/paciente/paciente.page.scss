@@ -1,0 +1,127 @@
+ion-header {
+    ion-toolbar {
+      --background: #0cbe98;
+      color: white;
+    }
+  }
+  ion-title{
+    font-weight: bold;
+  }
+  
+  ion-button {
+    --background: #0cbe98;
+  
+  }
+  
+  .title {
+    font-size: 36px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: #333; 
+    text-align: left;
+    
+  }
+  .description {
+    font-size: 24px; 
+    font-weight: bold; 
+    margin-bottom: 30px; 
+    color: #000; 
+    justify-items: auto;
+    text-align: justify;
+  }
+  .image-grid {
+    box-shadow: #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; 
+    margin: 0;
+    padding: 0;
+    position: relative; 
+  
+    table {
+      width: 100%; 
+      height: 100%; 
+      border-spacing: 0; 
+    }
+  
+    td {
+      width: 50%; 
+      height: 50%; 
+      padding: 0;
+      text-align: center;
+      vertical-align: middle;
+      position: relative; 
+  
+      img {
+        max-width: 100%;
+        max-height: 100%;
+        display: block;
+        margin: 0 auto;
+      }
+    }
+  }
+  
+  .image-grid {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; 
+    margin: 0;
+    padding: 0;
+    position: relative; 
+  
+    table {
+      width: 100%; 
+      height: 100%; 
+      border-spacing: 0; 
+    }
+  
+    td {
+      width: 50%;
+      height: 50%; 
+      padding: 0;
+      text-align: center;
+      vertical-align: middle;
+      position: relative; 
+  
+      img {
+        max-width: 100%;
+        max-height: 100%;
+        display: block;
+        margin: 0 auto;
+      }
+  
+      .content-box {
+        background-color: rgba(255, 255, 255, 0.8); 
+        padding: 10px;
+        border-radius: 5px;
+      }
+    }
+  }
+  
+  .custom-link {
+    color: #000; 
+    text-decoration: none;
+  }
+  
+  .custom-link:hover {
+    text-decoration: underline; 
+  }
+  
+  .fullscreen {
+    --ion-safe-area-top: 0; 
+    margin-top: var(--ion-safe-area-top);
+  }
+  
+  .page-title {
+    text-decoration: none; 
+    color: white; 
+    display: flex;
+    align-items: center;
+  }
+  
+  
+  
+  
+  

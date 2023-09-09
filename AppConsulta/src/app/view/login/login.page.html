@@ -1,7 +1,7 @@
 <ion-header>
   <ion-toolbar>
     <a href="/home" class="page-title">
-      <ion-title>Los Fellas</ion-title>
+      <ion-title>CliniKa</ion-title>
     </a>
   </ion-toolbar>
   <ion-buttons slot="end">
@@ -20,20 +20,27 @@
               <a href="https://www.instagram.com/mestrelaboratorio/" class="custom-link" target="_blank"> mestrelaboratorio</a>
             </ion-label>
 
+
           </ion-content>
         </ng-template>
       </ion-popover>
   </ion-buttons>
 </ion-header>
 
-<ion-content class="fullscreen">
-  <form (ngSubmit)="login()">
-    <ion-item>
-      <ion-input [(ngModel)]="email" placeholder="Email" type="email"></ion-input>
-    </ion-item>
-    <ion-item>
-      <ion-input [(ngModel)]="senha" placeholder="Senha" type="senha"></ion-input>
-    </ion-item>
-    <ion-button type="submit">Login</ion-button>
-  </form>
+<ion-content class="ion-padding fullscreen">
+  <div class="ion-text-center"> 
+    <form (ngSubmit)="login()">
+      <ion-item>
+        <ion-input [(ngModel)]="email" placeholder="Email" type="email"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-input [(ngModel)]="senha" placeholder="Senha" type="password"></ion-input> 
+      </ion-item>
+      <ion-button expand="full" (click)="login()">Entrar</ion-button>
+    </form>
+    <ion-button expand="full" (click)="cancelar()">Cancelar</ion-button>
+  </div>
+  <div *ngIf="erroLogin" class="mensagem-erro">
+    {{ erroLogin }}
+  </div>
 </ion-content>
