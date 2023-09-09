@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./upload.page.scss'],
 })
 export class UploadPage {
-  emailPaciente: string = ''; // Variável para armazenar o email do paciente
+  emailPaciente: string = ''; 
   arquivoExame: File | null = null;
   estaLogado = false;
 
@@ -32,17 +32,17 @@ export class UploadPage {
     if (this.arquivoExame && this.emailPaciente) {
       try {
         await this.firebaseStorageService.uploadExame(this.arquivoExame, this.emailPaciente);
-        // ... Código de upload do exame ...
+       
   
-        // Exiba o toast de sucesso após o upload
+       
         const toast = await this.toastController.create({
           message: 'Exame upado com sucesso',
-          duration: 2000, // Tempo que o toast ficará visível (em milissegundos)
-          position: 'bottom', // Posição do toast (pode ser 'top', 'bottom', ou 'middle')
+          duration: 2000, 
+          position: 'bottom', 
         });
         toast.present();
   
-        // Limpe os campos após o upload bem-sucedido
+        
         this.emailPaciente = '';
         this.arquivoExame = null;
       } catch (error) {
@@ -53,6 +53,10 @@ export class UploadPage {
   fazerLogout() {
     this.authService.fazerLogout();
     this.router.navigate(['/home']);
-    // Redirecione o usuário para a página de login ou qualquer outra página desejada
+    
+  }
+
+  cancelar() {
+    this.router.navigate(['/clinica']); 
   }
 }

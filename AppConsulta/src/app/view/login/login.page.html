@@ -38,5 +38,9 @@
       </ion-item>
       <ion-button expand="full" (click)="login()">Entrar</ion-button>
     </form>
+    <ion-button expand="full" (click)="cancelar()">Cancelar</ion-button>
+  </div>
+  <div *ngIf="erroLogin" class="mensagem-erro">
+    {{ erroLogin }}
   </div>
 </ion-content>

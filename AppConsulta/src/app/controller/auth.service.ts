@@ -23,6 +23,8 @@ export class AuthService {
     }
   }
 
+  
+
   async fazerLogout() {
     try {
       await this.afAuth.signOut();
@@ -45,4 +47,6 @@ export class AuthService {
       map((user) => (user ? user.email : null))
     );
   }
+
+  
 }

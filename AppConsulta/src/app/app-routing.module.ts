@@ -24,6 +24,20 @@ const routes: Routes = [
     path: 'upload',
     loadChildren: () => import('./view/upload/upload.module').then( m => m.UploadPageModule)
   },
+  {
+    path: 'clinica',
+    loadChildren: () => import('./view/clinica/clinica.module').then( m => m.ClinicaPageModule)
+  },
+  {
+    path: 'cadastro',
+    loadChildren: () => import('./view/cadastro/cadastro.module').then( m => m.CadastroPageModule)
+  },
+  
+  {
+    path: 'paciente',
+    loadChildren: () => import('./view/paciente/paciente.module').then( m => m.PacientePageModule)
+  },
+
 
 ];
 

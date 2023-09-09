@@ -1,5 +1,4 @@
 export class ExameModel {
-    id: string = ""; 
     imagemUrl: string; 
     dataPostagem: string = '';
     

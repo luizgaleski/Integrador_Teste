@@ -10,6 +10,7 @@ import { Router } from '@angular/router';
 export class LoginPage {
   email: string = '';
   senha: string = '';
+  erroLogin: string = '';
 
   constructor(private afAuth: AngularFireAuth, private router: Router) {}
 
@@ -23,36 +24,41 @@ export class LoginPage {
       if (res) {
         const tipoUsuario = this.getTipoUsuario(this.email);
         
-        // Redirecionar com base no tipo de usuário
+        
         switch (tipoUsuario) {
           case 'paciente':
-            this.router.navigate(['/exames']);
+            this.router.navigate(['/paciente']);
             break;
           case 'clinica':
-            this.router.navigate(['/upload']);
+            this.router.navigate(['/clinica']);
             break;
           default:
             console.error('Tipo de usuário desconhecido:', tipoUsuario);
-            // Lógica adicional para lidar com tipos desconhecidos ou não mapeados
+            
         }
       }
     } catch (error) {
       console.error('Erro de login:', error);
+      this.erroLogin = 'Login falhou. Verifique seu email e senha.';
     }
   }
 
   private getTipoUsuario(email: string): string {
     const domain = email.split('@')[1];
-    const tipo = domain.substring(0, 3); // Pega as três primeiras letras após o "@"
+    const tipo = domain.substring(0, 3); 
     
-    // Aqui você pode definir a lógica para mapear as letras para o tipo de usuário desejado
+    
     switch (tipo) {
       case 'pac':
         return 'paciente';
       case 'cli':
         return 'clinica';
       default:
-        return 'desconhecido'; // Tipo de usuário desconhecido ou não mapeado
+        return 'desconhecido';
     }
+  }
+
+  cancelar() {
+    this.router.navigate(['/home']); 
   }
 }

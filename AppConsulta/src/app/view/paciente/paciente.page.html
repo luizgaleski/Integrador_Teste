@@ -32,26 +32,15 @@
   </ion-buttons>
 </ion-header>
 
-<ion-toolbar color="light">
-  <ion-title size="large">Upload</ion-title>
-</ion-toolbar>
-<ion-content>
-  <form (ngSubmit)="enviarExame()">
-    <ion-list>
-     
-      <ion-item>
-        <ion-label position="stacked">Email do Paciente</ion-label>
-        <ion-input type="email" [(ngModel)]="emailPaciente"></ion-input>
-      </ion-item>
-      
-      
-      <ion-item>
-        <ion-label position="stacked">Selecionar Imagem</ion-label>
-        <input type="file" (change)="selecionarArquivo($event)">
-      </ion-item>
-    </ion-list>
+<ion-content class="ion-padding">
+  <div class="button-container">
+    <ion-button expand="full" (click)="redirecionarParaExames()">
+      Ver Exames
+    </ion-button>
     
-    <ion-button expand="full" type="submit" expand="full">Enviar Exame</ion-button>
-  </form>
-  <ion-button expand="full" (click)="cancelar()">Cancelar</ion-button>
+      <ion-button expand="full" (click)="confirmarExclusao()">Excluir Conta</ion-button>
+    
+  </div>
+  
 </ion-content>
+
